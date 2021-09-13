@@ -99,3 +99,103 @@ int main()
 }
 ```
 
+### [P1018 [NOIP2000 提高组\] 乘积最大](https://www.luogu.com.cn/problem/P1018)
+
+```c++
+/**有一说一，知道是dp的情况下，知道dp矩阵中元素的意义的情况下，错过状态方程，并且高精度计算并不熟练
+以下代码没有高精，将在明天内改写成高精，别刷提高了，先写完普及吧**/
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+using namespace std;
+
+#define MAXN 45
+
+int main()
+{
+    freopen("input.txt","r",stdin);
+    
+    int n,k;
+    int nums[MAXN];
+    long long a[MAXN][MAXN];   
+    long long dp[MAXN][MAXN] = {0};
+
+    char c;
+    
+    scanf("%d%d",&n,&k);
+    
+    char str[MAXN];
+    scanf("%s",str);
+
+    for(int i = 1; i <= n; i++)
+    {
+        nums[i] = str[i - 1] - '0';
+    }
+    
+    for(int i = 1; i <= n ;i++)
+    {
+        a[i][i] = nums[i];
+        for(int j = i + 1;j <= n ;j++)
+        {
+            a[i][j] = a[i][j - 1]*10 + nums[j];
+        }
+    }
+
+    for(int i = 1; i <= n; i++)
+        dp[i][0] = a[1][i];
+    
+    for(int i = 1; i <= k; i++)
+    {
+        for(int j = 1; j <=n ; j++)
+        {
+            for(int h = j; h > i; h--)
+            {
+                dp[j][i] = max(dp[j][i], dp[h - 1][i - 1]*a[h][j]);
+            }
+        }
+    }
+
+    printf("%lld\n", dp[n][k]);
+
+    return 0;
+}
+```
+
+### [P1057 [NOIP2008 普及组\] 传球游戏](https://www.luogu.com.cn/problem/P1057)
+
+```c++
+/**在dp的规律上，可能需要相信更朴素的规律，就从左右两边两个人那里获得，dp[i][j]表示传球次数为i时到第j个人的
+可能次数，再确定初始状态，一直向前推导就可以了**/
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+
+using namespace std;
+
+const int MAXN = 35;
+
+int dp[MAXN][MAXN],i,j,m,n;
+int main()
+{
+    freopen("input.txt","r",stdin);
+	
+    cin>>n>>m;
+
+	dp[0][1]=1;
+
+	for(int i=1; i<=m; i++)
+    {
+        dp[i][1]=dp[i-1][n]+dp[i-1][2];
+        dp[i][n]=dp[i-1][1]+dp[i-1][n - 1];
+
+        for(int j = 2; j < n; j++)
+        {
+            dp[i][j]=dp[i-1][j-1]+dp[i-1][j+1];
+        }
+    }
+                
+	cout<<dp[m][1]<<endl;
+	return 0;
+}
+```
+
