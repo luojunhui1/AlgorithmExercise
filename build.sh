@@ -1,4 +1,5 @@
 #!/bin/sh
+
 gitbook build
 cd AlgorithmExercise
 rm -r *
