@@ -19,7 +19,7 @@ RESEARCH DAILY
 
 而支持向量指的是距离分割线最近的样本。下图中更形象地说明了这两个概念：
 
-![img](https://img-blog.csdn.net/20170923171540791?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![](https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20211204014935.png)
 
 为了方便计算，对于支持向量到超平面的间隔我们通过缩放$w、b$参数使得$|W^Tx + b| = 1$。如此，根据支持向量的定义，对于样本空间中所有的样本而言，有下式成立：
 
@@ -56,3 +56,24 @@ RESEARCH DAILY
 为什么支持向量机要用拉格朗日对偶算法来解最大化间隔问题？ - 马同学的回答 - 知乎 https://www.zhihu.com/question/36694952/answer/1616415387
 
 [马同学 (matongxue.com)](https://www.matongxue.com/madocs/987/)
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+### 2021-12-04
+
+
+---
+
+### 2021-12-04
+
+ddsd
